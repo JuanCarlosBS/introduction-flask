@@ -1,9 +1,14 @@
 from flask import Flask
 
-app = Flask('flaskconftest')
+app = Flask('fascinates')
+
 
 @app.route('/')
 def hello():
-    return "Hello World!"
+    return 'Hello World!'
+
+@app.route('/<beer>')
+def pub(beer):
+    return f'I prefer {beer}' 
 
 app.run()
