@@ -1,6 +1,6 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
-app = Flask('fascinates')
+app = Flask('fascinates', template_folder='./static')
 
 
 @app.route('/')
@@ -20,6 +20,13 @@ def user(user_id):
     }
 
     return jsonify(user_content)
-    
+
+
+@app.route('/render/<ano>')
+def template(ano):
+    return render_template(
+        './teste.html',
+        ano=ano,
+    )
 
 app.run()
